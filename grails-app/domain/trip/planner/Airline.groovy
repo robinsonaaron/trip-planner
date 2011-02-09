@@ -3,20 +3,17 @@ package trip.planner
 
 class Airline{
   static constraints = {
-    name(blank:false, maxSize:100)
-    url(url:true)
-    frequentFlyer(blank:true)
-    notes(maxSize:1500)  
+    name()
+    iata(maxSize:3)
+    frequentFlier()
   }
 
+  static hasMany = [flights:Flight]
   String name
-  String url
-  String frequentFlyer
-  String notes
-  
-  static hasMany = [trip:Trip]
+  String iata
+  String frequentFlier
   
   String toString(){
-    return name
+    "${iata} - ${name}"
   }
 }
